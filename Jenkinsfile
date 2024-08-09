@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('拉取代码') {
+        stage('git 拉取代码') {
             steps {
                 git branch: 'main', credentialsId: 'gitlab', url: 'gitlab@git.narwal.com:lamborghini/projectdeploy.git'
             }
@@ -18,6 +18,11 @@ pipeline {
             steps {
                 sh 'cat Jenkinsfile'
             }
+        }
+
+        stage('构建 docker'){
+            docker build -t=harbor.devops.narwal.com/xh-test/fastapi:latest .
+            docker push harbor.devops.narwal.com/xh-test/fastapi:latest
         }
     }
 }
