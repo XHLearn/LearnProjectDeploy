@@ -1,4 +1,4 @@
-FROM python:3.10-alpine
+FROM harbor.devops.narwal.com/python/python:3.8.10
 
 WORKDIR /code
 
