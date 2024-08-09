@@ -8,21 +8,18 @@ pipeline {
             }
         }
 
-        stage('输出 ls -al') {
+        stage('输出 信息') {
             steps {
                 sh 'ls -al'
-            }
-        }
-
-        stage('输出 Jenkinsfile') {
-            steps {
                 sh 'cat Jenkinsfile'
             }
         }
 
         stage('构建 docker'){
-            docker build -t=harbor.devops.narwal.com/xh-test/fastapi:latest .
-            docker push harbor.devops.narwal.com/xh-test/fastapi:latest
+            steps {
+                sh 'docker build -t=harbor.devops.narwal.com/xh-test/fastapi:latest .'
+                sh 'docker push harbor.devops.narwal.com/xh-test/fastapi:latest'
+            }
         }
     }
 }
