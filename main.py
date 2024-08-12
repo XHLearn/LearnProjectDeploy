@@ -13,12 +13,9 @@ async def root():
 
 
 @app.get("/add")
+@logger.catch
 async def add():
-    data = {"a": 1}
-    try:
-        data = {"a": a}
-    except Exception as e:
-        logger.exception(e)
+    data = {"a": a}
     return data
 
 
