@@ -30,4 +30,5 @@ jobs:
         poetry install
     - name: Run main
       run: |
+        poetry shell
         python main.py
