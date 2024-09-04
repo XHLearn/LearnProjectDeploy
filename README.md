@@ -1,4 +1,11 @@
 
+
+# pre-commit hook
+- pip install pre-commit
+- pre-commit install
+- pre-commit --version
+- pre-commit run --all-files
+
 # docker 指令
 ```shell
 
